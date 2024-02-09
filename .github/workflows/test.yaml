@@ -1,0 +1,28 @@
+name: Tests
+
+on:
+  pull_request:
+
+jobs:
+  test1:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Setup python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ""
+    - name: Show pip version
+      run: pip --version
+
+
+  test2:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Setup python
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.10.12
+    - name: Downgrade pip version
+      run: pip install pip==22.0.2
+    - name: Show pip version
+      run: pip --version
